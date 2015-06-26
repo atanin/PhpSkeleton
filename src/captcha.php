@@ -34,10 +34,13 @@
 		if(1 == $this->patern){
 			echo $this->leftOperand.$this->operators[$this->operator].$this->numberToWord[$this->rightOperand]."\n";
 		}else if(2 == $this->patern){
-			echo $this->numberToWord[$this->leftOperand].$this->operators[$this->opertor].$this->rightOperand."\n";
+			echo $this->numberToWord[$this->leftOperand].$this->operators[$this->operator].$this->rightOperand."\n";
 		}
 	}
 }
-$cap = new Captcha(1,2,1,9);
-$cap->toString();
+$cap1 = new Captcha(1,2,1,9);
+$cap1->toString();
+
+$cap2 = new Captcha(2,2,1,9);
+$cap2->toString();
 ?>
