@@ -18,9 +18,9 @@
 	];
 
 	private $operators = [
-		1 = "+",
-		2 = "-",
-		3 = "x",
+		1 => "+",
+		2 => "-",
+		3 => "x",
 	];
 
 	function __construct($patern,$leftOperand,$operator,$rightOperand) {
@@ -28,16 +28,16 @@
 		$this->leftOperand = $leftOperand;
 		$this->operator = $operator;
 		$this->rightOperand = $rightOperand;
-		echo "Capcha init\n";	
 	}
 
-	function toString()
-	{
-		private $result;
-		if(1 == this->$patern){
-			echo $this->leftOperand.$this.operators[$this->operator]
+	function toString() {
+		if(1 == $this->patern){
+			echo $this->leftOperand.$this->operators[$this->operator].$this->numberToWord[$this->rightOperand]."\n";
+		}else if(2 == $this->patern){
+			echo $this->numberToWord[$this->leftOperand].$this->operators[$this->opertor].$this->rightOperand."\n";
 		}
 	}
 }
 $cap = new Captcha(1,2,1,9);
+$cap->toString();
 ?>
