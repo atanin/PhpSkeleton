@@ -1,41 +1,70 @@
 <?php
  class Captcha {
-	private $patern;
-	private $leftOperand;
-	private $operator;
-	private $rightOperand;
-	
-	private $numberToWord = [
-		1 => "ONE",
-		2 => "TWO",
-		3 => "THREE",
-		4 => "FOUR",
-		5 => "FIVE",
-		6 => "SIX",
-		7 => "SEVEN",
-		8 => "EIGHT",
-		9 => "NINE",
-	];
+	private $result;
+	function __construct($patern, $leftOperand,$operator,$rightOperand){
+		if($patern == 1) {
+			$this->result = $leftOperand;
+			if($operator == 1) {
+				$this->result = $this->result."+";
+			}else if($operator == 2) {
+				$this->result = $this->result."-";
+			}else if($operator == 3) {
+				$this->result == $this->result."x";
+			}
+			if($rightOperand == 1) {
+				$this->result = $this->result."ONE";
+			}else if($rightOperand == 2) {
+				$this->result = $this->result."TWO";
+			}else if($rightOperand == 3) {
+				$this->result = $this->result."THREE";
+			}else if($rightOperand == 4) {
+				$this->result = $this->result."FOUR";
+			}else if($rightOperand == 5) {
+				$this->result = $this->result."FIVE";
+			}else if($rightOperand == 6) {
+				$this->result = $this->result."SIX";
+			}else if($rightOperand == 7) {
+				$this->result = $this->result."SEVEN"; 
+			}else if($rightOperand == 8) {
+				$this->result = $this->result."EIGHT";
+			}else if($rightOperand == 9) {
+				$this->result = $this->result."NINE";
+			}
+ 
+		}else if($patern == 2) {
+			if($leftOperand == 1) {
+				$this->result = $this->result."ONE";
+			}else if($leftOperand == 2) {
+				$this->result = $this->result."TWO";
+			}else if($leftOperand == 3) {
+				$this->result = $this->result."THREE";
+			}else if($leftOperand == 4) {
+				$this->result = $this->result."FOUR";
+			}else if($leftOperand == 5) {
+				$this->result = $this->result."FIVE";
+			}else if($leftOperand == 6) {
+				$this->result = $this->result."SIX";
+			}else if($leftOperand == 7) {
+				$this->result = $this->result."SEVEN"; 
+			}else if($leftOperand == 8) {
+				$this->result = $this->result."EIGHT";
+			}else if($leftOperand == 9) {
+				$this->result = $this->result."NINE";
+			}
+			if($operator == 1) {
+				$this->result = $this->result."+";
+			}else if($operator == 2) {
+				$this->result = $this->result."-";
+			}else if($operator == 3) {
+				$this->result == $this->result."x";
+			}
+			$this->result = $this->result.$leftOperand;
+		}
 
-	private $operators = [
-		1 => "+",
-		2 => "-",
-		3 => "x",
-	];
-
-	function __construct($patern,$leftOperand,$operator,$rightOperand) {
-		$this->patern = $patern;
-		$this->leftOperand = $leftOperand;
-		$this->operator = $operator;
-		$this->rightOperand = $rightOperand;
 	}
 
 	function toString() {
-		if(1 == $this->patern){
-			echo $this->leftOperand.$this->operators[$this->operator].$this->numberToWord[$this->rightOperand]."\n";
-		}else if(2 == $this->patern){
-			echo $this->numberToWord[$this->leftOperand].$this->operators[$this->operator].$this->rightOperand."\n";
-		}
+		echo $this->result."\n";
 	}
 }
 $cap1 = new Captcha(1,2,1,9);
